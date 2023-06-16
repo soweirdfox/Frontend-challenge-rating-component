@@ -15,13 +15,11 @@ body {
     align-items: center;
     justify-content: center;
     font-family: 'Overpass', sans-serif;
-
 }
 
-.main-container {
+.main-container, .result-main-container {
     background-color: #1D242E;
     width: 400px;
-    /* aspect-ratio: 1/1; */
     height: 400px;
     display: flex;
     align-items: center;
@@ -29,14 +27,31 @@ body {
     border-radius: 30px;
 }
 
-.rating-main-container {
+.main-container{
+    position: absolute;
+    z-index: 3;
+}
+
+.result-main-container{
+    position: absolute;
+    z-index: 2;
+}
+
+
+.rating-main-container, .result-container {
     width: 85%;
-    height: 90%;
     display:flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-around;
-    
+}
+
+.rating-main-container {
+    height: 90%;
+}
+
+.result-container {
+    height: 85%;
 }
 
 .submit-btn{
@@ -55,7 +70,6 @@ body {
 }
 
 .rating {
-    /* margin-bottom: 20px; */
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -65,6 +79,7 @@ body {
     align-items: center;
     justify-content: center;
     color: hsl(217, 12%, 63%);
+    cursor: pointer;
 }
 
 h1 {
@@ -103,4 +118,18 @@ p{
 .rating-numbers::after{
     background-color: hsl(217, 12%, 63%);
     color: hsl(0, 0%, 100%);
+}
+
+.result-container{
+    align-items: center;
+}
+
+.notification {
+    padding: 8px 25px;
+    background-color: #262F38;
+    border-radius: 1.25rem;
+}
+
+.thank-you-text {
+    text-align: center;
 }
