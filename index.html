@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="main-container">
+    <div class="main-container" id="main-cont">
         <div class="rating-main-container">
             <div class="grey-circle">
             <img src="images/icon-star.svg" alt="star">
@@ -24,21 +24,56 @@
                 <div class="rating-numbers">4</div>
                 <div class="rating-numbers">5</div>
             </div>
-            <button class="submit-btn" id="submit">Submit</button>
+            <button class="submit-btn" id="submit" onclick="openThankYouPage()">Submit</button>
         </div>
     </div>
-    <div class="result-main-container">
+    <div class="result-main-container" id="result-cont">
         <div class="result-container">
             <div class="thank-you-image">
                 <img src="images/illustration-thank-you.svg" alt="Thank you">
             </div>
             <div class="note">
-                <p class="notification">You selected <!-- Add rating here --> out of 5</p>
+                <p class="notification" id="Thank-you-note"></p>
             </div>
             <h1>Thank you!</h1>
             <p class="thank-you-text">We appreciate you taking the time to give a rating.<br> If you ever need more support, 
                 don't hesitate to <br>get in touch!</p>
         </div>
     </div>
+    <script>
+        const list = document.getElementsByClassName("rating-numbers");
+        const mainCont = document.getElementById("main-cont");
+        const resultCont = document.getElementById("result-cont");
+        const thankYouNote = document.getElementById("Thank-you-note");
+
+
+        //select one option from rating list
+        
+        let rateNumber;
+        for (let i =0; i<list.length; i++){
+            list[i].onclick = function(){
+                for (let j=0;j<list.length; j++){
+                    list[j].style.backgroundColor="#262F38";
+                    list[j].style.color="hsl(217, 12%, 63%)";
+                }
+                rateNumber=list[i].innerText;
+                console.log(rateNumber);
+                list[i].style.backgroundColor="hsl(217, 12%, 63%)";
+                list[i].style.color="hsl(0, 0%, 100%)";
+                
+            }
+           
+        }
+        
+
+        //open ThankYou page and print the selected rating
+        function openThankYouPage(){
+            mainCont.style.zIndex="1";
+            resultCont.style.zIndex="2";
+            const thankYouText = document.createTextNode(`You selected ${rateNumber} out of 5`); 
+            thankYouNote.appendChild(thankYouText);
+        }
+
+    </script>
 </body>
 </html>
