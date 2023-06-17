@@ -36,8 +36,8 @@
                 <p class="notification" id="Thank-you-note"></p>
             </div>
             <h1>Thank you!</h1>
-            <p class="thank-you-text">We appreciate you taking the time to give a rating.<br> If you ever need more support, 
-                don't hesitate to <br>get in touch!</p>
+            <p class="thank-you-text">We appreciate you taking the time to give a rating. If you ever need more support, 
+                don't hesitate to get in touch!</p>
         </div>
     </div>
     <script>
@@ -65,13 +65,16 @@
            
         }
         
-
         //open ThankYou page and print the selected rating
         function openThankYouPage(){
+            if (rateNumber===undefined){
+                alert("Choose any rating, please");
+            } else {
             mainCont.style.zIndex="1";
             resultCont.style.zIndex="2";
             const thankYouText = document.createTextNode(`You selected ${rateNumber} out of 5`); 
             thankYouNote.appendChild(thankYouText);
+            }
         }
 
     </script>
